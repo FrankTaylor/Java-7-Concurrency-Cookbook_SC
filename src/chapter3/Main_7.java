@@ -33,13 +33,14 @@ public class Main_7 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            
             System.out.println("Producer: " + buffer.size());
             cycle++;
         }
     }
     
     public static void main(String[] args) {
+    	
     	
     }
     
