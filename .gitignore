@@ -1,6 +1,10 @@
-.classpath
-*.classes
-.project
+.git/
 .settings/
-build/
+
+*.classes
 bin/
+
+.classpath
+.project
+
+build/
