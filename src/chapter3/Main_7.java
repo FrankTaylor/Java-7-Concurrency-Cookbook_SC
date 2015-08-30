@@ -76,6 +76,7 @@ public class Main_7 {
     }
     public static void main(String[] args) {
     	
+    	// 哈哈
     	List<String> buffer1 = new ArrayList<String>();
     	List<String> buffer2 = new ArrayList<String>();
     	
