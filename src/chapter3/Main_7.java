@@ -91,6 +91,4 @@ public class Main_7 {
     	threadProducer.start();
     	threadConsumer.start();
     }
-    
-    
 }
