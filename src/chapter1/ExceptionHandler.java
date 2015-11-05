@@ -16,7 +16,7 @@ public class ExceptionHandler implements UncaughtExceptionHandler {
     private class Task implements Runnable {
         @Override
         public void run() {
-            int numero = Integer.parseInt("TTT");
+            int numero = Integer.parseInt("TTTTT");
         }  
     }
 
