@@ -9,6 +9,7 @@ public class Main_1 {
 	 */
 	public static class AddTask implements Runnable {
 		
+		// 非阻塞并发队列。
 		private ConcurrentLinkedDeque<String> list;
 		
 		public AddTask(ConcurrentLinkedDeque<String> list) {
@@ -39,6 +40,13 @@ public class Main_1 {
 		@Override
 		public void run() {
 			for (int i = 0; i < 5000; i++) {
+				
+				/*
+				 * ConcurrentLinkedDeque#pollFirst()：移除队列中的第一个元素。
+				 * ConcurrentLinkedDeque#pollLast()：移除队列中的最后一个元素。
+				 * 
+				 * 如果队列为空，这些方法将返回 null。
+				 */
 				list.pollFirst();
 				list.pollLast();
 			}
@@ -46,6 +54,17 @@ public class Main_1 {
 		
 	}
 	
+	/*
+	 * 更多信息：
+	 * getFirst() 和 getLast()：分别返回队列中第一个和最后一个元素，返回的元素不会从队列中移除。如果队列为空，
+	 * 这两个方法抛出 NoSuchElemenetException 异常。
+	 * 
+	 * peek()、peekFirst() 和 peekLast()：分别返回队列中第一个和最后一个元素，返回的元素不会从队列中移除。
+	 * 如果队列为空，这些方法返回 null。
+	 * 
+	 * remove()、removeFirst() 和 removeLast()：分别返回队列中第一个和最后一个元素，返回的元素将会从
+	 * 队列中移除。如果队列为空，这些方法抛出 NoSuchElementException 异常。
+	 */
 	public static void main(String[] args) {
 		ConcurrentLinkedDeque<String> list = new ConcurrentLinkedDeque<String>();
 		
@@ -69,6 +88,12 @@ public class Main_1 {
 			}
 		}
 		
+		/*
+		 * ConcurrentLinkedDeque#size()：输出队列中元素的数量。需要注意的是，这个方法返回的值可能不是真实的，
+		 * 尤其当有线程在添加数据或移除数据时，这个方法需要遍历整个队列来计算元素数量，而遍历过的数据可能已经改变。
+		 * 
+		 * 仅当没有任何线程修改队列时，才能保证返回的结果是准确的。
+		 */
 		System.out.printf("Main: Size of the List: %d\n", list.size());
 		
 		// 创建 100 个向集合中取出元素的任务，并用线程进行驱动。
