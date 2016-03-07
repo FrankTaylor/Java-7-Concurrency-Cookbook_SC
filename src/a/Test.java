@@ -6,9 +6,11 @@ public class Test {
 	
 	public static void main(String[] args) {
 		int[] elems = {6, 10, 100, 90, 56, 2, 86, 192, 9, 20};
+		aaa(elems);
+//		System.out.println("" + partitionIt(0, elems.length, 60, elems));
+//		System.out.println(Arrays.toString(elems));
 		
-		System.out.println("" + partitionIt(0, elems.length, 60, elems));
-		System.out.println(Arrays.toString(elems));
+		
 	}
 	
 	public static int partitionIt(int left, int right, int pivot, int[] elems) {
@@ -74,4 +76,24 @@ public class Test {
 			elems[in] = temp;
 		}
 	}
+	
+	
+	public static void aaa(int[] nums) {
+		int out, in;
+		
+		for (out = 1; out < nums.length; out++) {
+			int temp = nums[out];
+			in = out;
+			
+			while (in > 0 && nums[in - 1] > temp) {
+				nums[in] = nums[in - 1];
+				in--;
+			}
+			
+			nums[in] = temp;
+		}
+		
+		System.out.println(Arrays.toString(nums));
+	}
+	
 }
